@@ -6,38 +6,33 @@ License:       ASL 2.0
 URL:           http://labs.carrotsearch.com/hppc.html
 Source0:       https://github.com/carrotsearch/hppc/archive/%{version}.tar.gz
 
+BuildRequires: maven-local
 BuildRequires: mvn(com.google.guava:guava)
 BuildRequires: mvn(commons-io:commons-io)
 BuildRequires: mvn(org.apache.ant:ant)
 BuildRequires: mvn(org.apache.ant:ant-junit)
+BuildRequires: mvn(org.apache.maven:maven-core)
+BuildRequires: mvn(org.apache.maven:maven-plugin-api)
+BuildRequires: mvn(org.apache.maven.plugin-tools:maven-plugin-annotations)
+BuildRequires: mvn(org.apache.maven.plugins:maven-plugin-plugin)
 BuildRequires: mvn(org.apache.velocity:velocity)
 BuildRequires: mvn(org.sonatype.oss:oss-parent:pom:)
+BuildRequires: mvn(org.antlr:antlr4)
 BuildRequires: mvn(org.antlr:antlr4-maven-plugin)
 
 %if 0
 # hppc-benchmarks deps
-# http://gil.fedorapeople.org/caliper-1.0-0.1.20120909SNAPSHOT.fc16.src.rpm
-BuildRequires: mvn(com.google.caliper:caliper:0.5-rc1)
-BuildRequires: mvn(com.google.code.gson:gson)
-BuildRequires: mvn(com.h2database:h2)
-BuildRequires: mvn(commons-io:commons-io)
-BuildRequires: mvn(commons-lang:commons-lang)
 BuildRequires: mvn(it.unimi.dsi:fastutil)
-# http://gil.fedorapeople.org/trove-3.0.3-1.fc16.src.rpm
-BuildRequires: mvn(net.sf.trove4j:trove4j:3.0.3)
-BuildRequires: mvn(org.apache.mahout:mahout-collections)
+BuildRequires: mvn(net.openhft:koloboke-impl-jdk6-7:0.6.6)
+BuildRequires: mvn(org.openjdk.jmh:jmh-core)
+BuildRequires: mvn(org.openjdk.jmh:jmh-generator-annprocess)
 
 # test deps
-BuildRequires: mvn(com.carrotsearch:junit-benchmarks)
 BuildRequires: mvn(junit:junit)
 BuildRequires: mvn(com.carrotsearch.randomizedtesting:junit4-maven-plugin)
 BuildRequires: mvn(com.carrotsearch.randomizedtesting:randomizedtesting-runner)
+BuildRequires: mvn(org.assertj:assertj-core)
 %endif
-
-BuildRequires: maven-local
-BuildRequires: maven-antrun-plugin
-BuildRequires: maven-enforcer-plugin
-BuildRequires: maven-plugin-build-helper
 
 BuildArch:     noarch
 
@@ -68,10 +63,18 @@ find . -name "*.jar" -print -delete
 %pom_remove_plugin :junit4-maven-plugin
 %pom_remove_plugin :forbiddenapis
 %pom_remove_plugin :junit4-maven-plugin hppc
+# Unneeded task
+%pom_remove_plugin -r :maven-assembly-plugin
 
-sed -i 's/\r//' CHANGES.txt
+# Convert from dos to unix line ending
+for file in CHANGES.txt; do
+ sed -i.orig 's|\r||g' $file
+ touch -r $file.orig $file
+ rm $file.orig
+done
 
 %mvn_file :%{name} %{name}
+%mvn_package :%{name}::esoteric:
 %mvn_file :%{name}-template-processor %{name}-templateprocessor
 %mvn_package :%{name}-template-processor %{name}-templateprocessor
 
@@ -94,6 +97,9 @@ sed -i 's/\r//' CHANGES.txt
 %license LICENSE.txt
 
 %changelog
+* Sat Jan 23 2016 gil cattaneo <puntogil@libero.it> 0.7.1-2
+- install "esoteric" artifact
+
 * Wed Jan 20 2016 Alexander Kurtakov <akurtako@redhat.com> 0.7.1-1
 - Update to upstream 0.7.1 release.
 
