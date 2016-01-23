@@ -1,6 +1,6 @@
 Name:          hppc
 Version:       0.7.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       High Performance Primitive Collections for Java
 License:       ASL 2.0
 URL:           http://labs.carrotsearch.com/hppc.html
@@ -88,13 +88,13 @@ done
 
 %files -f .mfiles
 %doc CHANGES.txt README.txt
-%license LICENSE.txt
+%license LICENSE.txt NOTICE.txt
 
 %files templateprocessor -f .mfiles-%{name}-templateprocessor
-%license LICENSE.txt
+%license LICENSE.txt NOTICE.txt
 
 %files javadoc -f .mfiles-javadoc
-%license LICENSE.txt
+%license LICENSE.txt NOTICE.txt
 
 %changelog
 * Sat Jan 23 2016 gil cattaneo <puntogil@libero.it> 0.7.1-2
