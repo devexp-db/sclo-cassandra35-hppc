@@ -1,6 +1,6 @@
 Name:          hppc
 Version:       0.7.1
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       High Performance Primitive Collections for Java
 License:       ASL 2.0
 URL:           http://labs.carrotsearch.com/hppc.html
@@ -97,6 +97,9 @@ done
 %license LICENSE.txt NOTICE.txt
 
 %changelog
+* Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Sat Jan 23 2016 gil cattaneo <puntogil@libero.it> 0.7.1-2
 - install "esoteric" artifact
 
