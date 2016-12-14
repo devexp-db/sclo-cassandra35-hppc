@@ -1,0 +1,33 @@
+HPCC deps		test	pom.xml		rh-maven33	rh-java-common	Fedora		rh-cassandra39
+--------------------------------------------------------------------------------------------------------------
+junit			X	4.12		4.11-8				4.12-5		rh-maven33
+assertj-core		X	2.0.0						2.2.0-2
+randomizedtesting	X	2.1.14						2.3.1-2
+maven-gpg-plugin		1.6		1.4-11				1.6-4		rh-maven33
+maven-assembly-plugin		2.5.2		2.4-8				3.0.0-1		rh-maven33
+antlr4-maven-plugin		4.5						4.5.2-1		Fedora
+maven-versions-plugin		2.1		1.2-7						rh-maven33
+maven-clean-plugin		2.5		2.5-8				3.0.0-2		rh-maven33
+maven-compiler-plugin		3.1		3.1-4				3.6.0-2		rh-maven33
+maven-deploy-plugin		2.8.2		2.7-11				2.8.2-5		rh-maven33
+maven-install-plugin		2.5.2		2.4-7				2.5.2-4		rh-maven33
+maven-jar-plugin		2.5		2.4-8				3.0.2-2		rh-maven33
+maven-javadoc-plugin		2.10.3		2.9-8				2.10.4-1	rh-maven33
+maven-resources-plugin		2.6		2.6-6				3.0.2-1		rh-maven33
+maven-surefire-plugin		2.17		2.15-3				2.19.1-5	rh-maven33
+junit4-maven-plugin		2.1.14						2.3.1-2
+forbiddenapis			1.8						1.7-3
+maven-enforcer-plugin		1.4		1.2-8				1.4.1-4		rh-maven33
+maven-bundle-plugin		3.0.0		2.3.7-12			3.2.0-3		rh-maven33
+maven-source-plugin		2.4		2.2.1-7				3.0.1-1		rh-maven33
+fastutil			7.0.2						7.0.7-2
+koloboke-impl-jdk6-7		0.6.6
+jmh-core			1.6.2						1.13-1		Fedora
+jmh-generator-annprocess	1.6.2						1.13-1		Fedora
+maven-shade-plugin		2.2		2.0-6				2.4.3-1		rh-maven33
+guava				18.0				13.0-6		18.0-9		Fedora
+velocity			1.7		1.7-10				1.7-19		rh-maven33
+antl4				4.5						4.5.2-1		Fedora
+maven				3.2.3		3.3.9-2				3.3.9-6		rh-maven33
+maven-plugin-annotations	3.4		3.1-17						rh-maven33
+maven-plugin-tools		3.4		3.1-17				3.5-1		rh-maven33
